@@ -3,7 +3,13 @@ import os, json, time, sys, commands, re
 reload(sys) 
 sys.setdefaultencoding('utf-8')
 #print "Hello, Python!"
+def printShell(str):
+	print '===execute:', str
+	(status, output) = commands.getstatusoutput(str)
+	print output
+printShell('git add *')
 
+print '######begin to create update.json ...'
 (status, output) = commands.getstatusoutput('git status')
 #print output
 str = output.decode('utf-8')
@@ -17,7 +23,7 @@ ADDList = []
 for s in result:
 	sd = s.decode('utf-8')
 	(catalog, item) = s.split('/', 1)
-	print catalog, item
+	#print catalog, item
 	tmpDic = {}
 	tmpDic['catalog'] = catalog.decode('utf-8')
 	tmpDic['item'] = item.decode('utf-8')
@@ -30,7 +36,7 @@ DELEList = []
 for s in deleresult:
 	sd = s.decode('utf-8')
 	(catalog, item) = s.split('/', 1)
-	print catalog, item
+	#print catalog, item
 	tmpDic = {}
 	tmpDic['catalog'] = catalog.decode('utf-8')
 	tmpDic['item'] = item.decode('utf-8')
@@ -43,7 +49,7 @@ MODIList = []
 for s in MODIResult:
 	sd = s.decode('utf-8')
 	(catalog, item) = s.split('/', 1)
-	print catalog, item
+	#print catalog, item
 	tmpDic = {}
 	tmpDic['catalog'] = catalog.decode('utf-8')
 	tmpDic['item'] = item.decode('utf-8')
@@ -55,7 +61,13 @@ res = json.dumps(updateDic, ensure_ascii=False)
 uf = open('update.json', 'w')
 uf.write(res)
 uf.close()
+print '######create update.json success'
+printShell('cat update.json')
 
+
+
+
+print '######begin to create resource.json ...'
 dic = {}
 dic['UPDATETIME'] = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 for dirpath, dirnames, filenames in os.walk('/Users/caizhongming/Desktop/Ink/resource'):
@@ -77,11 +89,14 @@ for dirpath, dirnames, filenames in os.walk('/Users/caizhongming/Desktop/Ink/res
         dic[fn] = list
 #print dic
 json = json.dumps(dic, ensure_ascii=False)
-print json
+#print json
 f = open('resource.json', 'w')
 f.write(json)
 f.close()
+print '######create resource.json success'
+printShell('cat resource.json')
 
+printShell('git add *')
 
 #print result
 #json = json.dumps(result, ensure_ascii=False)
