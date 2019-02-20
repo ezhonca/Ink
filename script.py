@@ -83,9 +83,9 @@ for dirpath, dirnames, filenames in os.walk('/Users/caizhongming/Desktop/Ink/res
     	#f.close()
         
     	for filename in filenames:
+    		name = re.findall(r"(.+?)\.png", filename)
         	#print ' File', filename
-
-        	list.append(filename)
+        	list.append(name)
         dic[fn] = list
 #print dic
 json = json.dumps(dic, ensure_ascii=False)
