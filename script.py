@@ -85,7 +85,8 @@ for dirpath, dirnames, filenames in os.walk('/Users/caizhongming/Desktop/Ink/res
     	for filename in filenames:
     		name = re.findall(r"(.+?)\.png", filename)
         	#print ' File', filename
-        	list.append(name)
+        	if name:
+        		list.append(name)
         dic[fn] = list
 #print dic
 json = json.dumps(dic, ensure_ascii=False)
@@ -97,7 +98,9 @@ print '######create resource.json success'
 printShell('cat resource.json')
 
 printShell('git add *')
-
+t = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+printShell('git commit -m \'' + t + '\'')
+printShell('git push -u origin master')
 #print result
 #json = json.dumps(result, ensure_ascii=False)
 #print json
