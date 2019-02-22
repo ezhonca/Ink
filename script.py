@@ -13,7 +13,7 @@ print '######begin to create resource.json ...'
 versionDic = {}
 versionDic['version'] = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 vs = json.dumps(versionDic, ensure_ascii=False)
-vf = open('resource.json', 'w')
+vf = open('version.json', 'w')
 vf.write(vs)
 vf.close()
 print '######create update.json success'
