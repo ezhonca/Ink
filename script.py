@@ -69,7 +69,6 @@ printShell('cat update.json')
 
 print '######begin to create resource.json ...'
 dic = {}
-dic['UPDATETIME'] = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 for dirpath, dirnames, filenames in os.walk('/Users/caizhongming/Desktop/Ink/resource'):
     
     if dirpath != '/Users/caizhongming/Desktop/Ink/resource':
