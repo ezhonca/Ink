@@ -9,6 +9,16 @@ def printShell(str):
 	print output
 printShell('git add *')
 
+print '######begin to create resource.json ...'
+versionDic = {}
+versionDic['version'] = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+vs = json.dumps(versionDic, ensure_ascii=False)
+vf = open('resource.json', 'w')
+vf.write(vs)
+vf.close()
+print '######create update.json success'
+
+
 print '######begin to create update.json ...'
 (status, output) = commands.getstatusoutput('git status')
 #print output
