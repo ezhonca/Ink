@@ -1,1 +1,1 @@
-{"ADD": [{"item": "香蕉", "catalog": "水果蔬菜"}], "MODIFIED": [], "DELETE": []}
+{"ADD": [], "MODIFIED": [], "DELETE": [{"item": "冰淇淋", "catalog": "美味点心"}, {"item": "奶酪", "catalog": "美味点心"}, {"item": "巧克力", "catalog": "美味点心"}, {"item": "棒棒糖", "catalog": "美味点心"}, {"item": "汉堡包", "catalog": "美味点心"}, {"item": "甜甜圈", "catalog": "美味点心"}, {"item": "美味点心", "catalog": "美味点心"}, {"item": "马卡龙", "catalog": "美味点心"}]}
