@@ -9,14 +9,14 @@ def printShell(str):
 	print output
 printShell('git add *')
 
-print '######begin to create resource.json ...'
+print '######begin to create version.json ...'
 versionDic = {}
 versionDic['version'] = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 vs = json.dumps(versionDic, ensure_ascii=False)
 vf = open('version.json', 'w')
 vf.write(vs)
 vf.close()
-print '######create update.json success'
+print '######create version.json success'
 
 
 print '######begin to create update.json ...'
@@ -25,8 +25,10 @@ print '######begin to create update.json ...'
 str = output.decode('utf-8')
 #print str
 str = "modi a.png modi b.png"
+
+
+#updateDic['UPDATETIME'] = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 updateDic = {}
-updateDic['UPDATETIME'] = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 result = re.findall(r"new file:.+resource\/(.+?)\.png", output)
 
 ADDList = []
